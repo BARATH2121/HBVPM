@@ -8,11 +8,12 @@
 :root{--bg:#24102e;--bg2:#331743;--ink:#f6efe4;--soft:#cdbfd3;--gold:#d9b96e;--gold2:#f0dba2;
 --serif:'Cormorant Garamond','Georgia',serif;--sans:'Jost','Helvetica Neue',Arial,sans-serif;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{overflow-x:hidden}
 html{scroll-padding-top:env(safe-area-inset-top,0px);background:#24102e}
 *{box-sizing:border-box;margin:0}
 body{background:radial-gradient(1200px 700px at 50% -10%,var(--bg2),var(--bg));color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
-section{max-width:960px;margin:0 auto;padding:84px 24px;text-align:center}
-.hero{position:relative;overflow:hidden;min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+section{overflow-x:clip;max-width:960px;margin:0 auto;padding:84px 24px;text-align:center}
+.hero{position:relative;overflow:hidden;min-height:92vh;min-height:92svh;display:flex;flex-direction:column;justify-content:center;align-items:center}
 .small{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--gold)}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,10vw,6.2rem);line-height:1.02;margin:18px 0;letter-spacing:.01em}
 h1 em{display:block;font-style:italic;color:var(--gold2);font-size:.82em}
@@ -49,8 +50,8 @@ figcaption{transform:translateZ(26px)}
 .msgcard{max-width:640px;margin:0 auto;padding:44px 28px;border:1px solid rgba(217,185,110,.5);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border-radius:6px}
 .msgcard h2,.msgcard p,.msgcard .sign{transform:translateZ(30px)}
 .stage{perspective:1100px;height:250px;margin:36px auto 0;max-width:380px}
-.ring{position:relative;width:250px;height:210px;margin:0 auto;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.4,.1,.2,1)}
-.qc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:22px;text-align:center;font-family:var(--serif);font-style:italic;font-size:1.22rem;line-height:1.35;color:var(--ink);backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--gold);border-radius:6px;background:linear-gradient(150deg,#4a2260,#2b1238);box-shadow:inset 0 0 30px rgba(217,185,110,.12)}
+.ring{position:relative;width:220px;height:200px;margin:0 auto;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.4,.1,.2,1)}
+.qc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;text-align:center;font-family:var(--serif);font-style:italic;font-size:1.12rem;line-height:1.35;color:var(--ink);backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--gold);border-radius:6px;background:linear-gradient(150deg,#4a2260,#2b1238);box-shadow:inset 0 0 30px rgba(217,185,110,.12)}
 .ctl{display:flex;gap:14px;justify-content:center;margin-top:8px}
 .ctl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:transparent;color:var(--gold2);font-size:1.3rem;cursor:pointer}
 @media(max-width:640px){.msgcard{padding:34px 20px}}
@@ -76,7 +77,7 @@ body:not(.opened) .hero>*{animation-play-state:paused}
 .cubestage .floor{bottom:10px;width:200px}
 @media(prefers-reduced-motion:reduce){.spin{animation:none}.door,.gc{transition:none}}
 
-.cov{position:relative;height:440px;perspective:1400px;margin-top:10px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.cov{position:relative;overflow:hidden;height:calc(min(84vw,340px) + 150px);perspective:1400px;margin-top:10px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .cvw{position:absolute;inset:0;transform-style:preserve-3d}
 .ci{position:absolute;left:50%;top:24px;width:min(62vw,250px);height:min(84vw,340px);margin-left:calc(min(62vw,250px)/-2);padding:10px;background:linear-gradient(150deg,#4a2260,#2b1238);border:1px solid var(--gold);box-shadow:0 30px 50px rgba(0,0,0,.5);transition:transform .9s cubic-bezier(.3,.1,.2,1),opacity .9s,filter .9s;cursor:pointer;-webkit-box-reflect:below 6px linear-gradient(transparent 72%,rgba(255,255,255,.22))}
 .ci img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
@@ -100,6 +101,25 @@ body:not(.opened) .hero>*{animation-play-state:paused}
 .btn{font:400 1rem var(--sans);letter-spacing:.06em;color:#24102e;background:var(--gold);border:0;padding:12px 32px;border-radius:40px;cursor:pointer;margin-top:6px}
 .btn:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.mi{transition:none}}
+
+@media(max-width:640px){
+section{padding:56px 18px}
+h2{font-size:1.9rem;margin-bottom:18px}
+h1{margin:12px 0}
+.lead{font-size:1rem}
+blockquote{font-size:1.55rem}
+.msgcard{padding:30px 18px}
+.msg p{font-size:1rem}
+.stage{height:230px;margin-top:26px}
+.cubestage{height:230px}
+.cube{transform-origin:center;zoom:.86}
+.cf{font-size:1.45rem}
+.mg{gap:8px}
+.mb{font-size:1.2rem}
+.capt{font-size:1.2rem}
+footer{font-size:1.05rem}
+}
+@media(max-width:360px){.ci{padding:7px}.mg{gap:6px}.qc{font-size:1.02rem}}
 </style></head><body>
 <div id="gate"><div class="door dl"></div><div class="door dr"></div><div class="gc"><p class="small">a little surprise for you</p><h3>For Vishnupriya Mam</h3><button id="go">Open</button></div></div>
 
@@ -114,7 +134,7 @@ body:not(.opened) .hero>*{animation-play-state:paused}
 <section>
 <blockquote>Hard work is quiet. It shows up early, stays late, and never asks for applause.</blockquote>
 <p class="q2">Others wait for success. Vishnu Mam builds it, one patient day at a time.</p>
-<div class="stage"><div class="floor"></div><div class="ring" id="ring"><div class="qc" style="transform:rotateY(0deg) translateZ(225px)">Great things are built by those who keep showing up.</div><div class="qc" style="transform:rotateY(60deg) translateZ(225px)">A hardworking teacher plants seeds she may never see bloom, and plants them anyway.</div><div class="qc" style="transform:rotateY(120deg) translateZ(225px)">Discipline is a quiet kind of love for the goal.</div><div class="qc" style="transform:rotateY(180deg) translateZ(225px)">Every success you see began as an ordinary day of extra effort.</div><div class="qc" style="transform:rotateY(240deg) translateZ(225px)">Vishnu Mam shows us that effort is the most elegant thing a person can wear.</div><div class="qc" style="transform:rotateY(300deg) translateZ(225px)">Hard work does not shout. It simply keeps getting better.</div></div></div>
+<div class="stage"><div class="floor"></div><div class="ring" id="ring"><div class="qc" style="transform:rotateY(0deg) translateZ(191px)">Great things are built by those who keep showing up.</div><div class="qc" style="transform:rotateY(60deg) translateZ(191px)">A hardworking teacher plants seeds she may never see bloom, and plants them anyway.</div><div class="qc" style="transform:rotateY(120deg) translateZ(191px)">Discipline is a quiet kind of love for the goal.</div><div class="qc" style="transform:rotateY(180deg) translateZ(191px)">Every success you see began as an ordinary day of extra effort.</div><div class="qc" style="transform:rotateY(240deg) translateZ(191px)">Vishnu Mam shows us that effort is the most elegant thing a person can wear.</div><div class="qc" style="transform:rotateY(300deg) translateZ(191px)">Hard work does not shout. It simply keeps getting better.</div></div></div>
 <div class="ctl"><button id="pv" aria-label="Previous quote">&#8249;</button><button id="nx" aria-label="Next quote">&#8250;</button></div>
 </section>
 
